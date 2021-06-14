@@ -1,0 +1,108 @@
+version: '3'
+
+networks:
+  laravel:
+
+
+    #NGINX Service
+services:
+  site:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    container_name: nginx_cctv
+    ports:
+      -  8088:80
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - php
+      - redis
+      - postgres
+      - mailhog
+    networks:
+      - laravel
+      
+  postgres:
+    image: postgres:9.6
+    container_name: postgres_cctv
+    restart : unless-stopped
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    tty : true
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=cctv_db
+    ports:
+     - "5434:5432"
+    networks:
+     - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: php_cctv
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - laravel
+
+  redis:
+    image: redis:alpine
+    container_name: redis_cctv
+    restart: unless-stopped
+    ports:
+      - 6381:6380
+    networks:
+      - laravel
+
+  composer:
+    build:
+      context: .
+      dockerfile: composer.dockerfile
+    container_name: composer_cctv
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    user: laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']
+    networks:
+      - laravel
+
+  npm:
+    image: node:13.7
+    container_name: npm_cctv
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    networks:
+      - laravel
+
+  artisan:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: artisan_cctv
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - postgres
+    working_dir: /var/www/html
+    user: laravel
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog_cctv
+    ports:
+      - 1026:1025
+      - 8026:8025
+    networks:
+      - laravel
