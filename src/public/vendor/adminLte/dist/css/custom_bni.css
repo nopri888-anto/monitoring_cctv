@@ -1,0 +1,61 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mt-10{
+    margin-top: 25px;
+}
+
+.mt-5{
+    margin-top: 15px;
+}
+
+.alert-dashboard{
+    background-color: #EF622B;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.navbar-bni{
+    background-color: #EF622B;
+}
+
+.card{
+    width: 80%;
+}
+
+.thead-bni{
+    background-color:rgb(25,116,142);
+    color: white;
+    font-weight: bold;
+}
+
+.sub-title{
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.link-bni:link,
+.link-bni:active,
+.link-bni:visited{
+    color: #F25822;
+    text-decoration: none;
+}
+
+.sub-title-chart{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.table-nilai-bni{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.bg-tbl{
+    background-color:rgb(25,116,142);
+    color: white;
+}
