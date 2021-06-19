@@ -37,10 +37,18 @@ Route::get('user/edit/{id}', [App\Http\Controllers\Admin\UsersController::class,
 Route::post('user/update/{id}', [App\Http\Controllers\Admin\UsersController::class, 'update'])->name('user.update');
 Route::get('user/delete/{id}', [App\Http\Controllers\Admin\UsersController::class, 'destroy'])->name('user.delete');
 
-/* Route For User wilayah*/
+/* Route For Admin wilayah*/
 Route::get('admin/wilayah/', [App\Http\Controllers\Admin\WilayahController::class, 'index'])->name('admin.wilayah');
 Route::get('wilayah/create', [App\Http\Controllers\Admin\WilayahController::class, 'create'])->name('wilayah.create');
 Route::post('wilayah/store', [App\Http\Controllers\Admin\WilayahController::class, 'store'])->name('wilayah.store');
 Route::get('wilayah/edit/{id}', [App\Http\Controllers\Admin\WilayahController::class, 'edit'])->name('wilayah.edit');
 Route::post('wilayah/update/{id}', [App\Http\Controllers\Admin\WilayahController::class, 'update'])->name('wilayah.update');
 Route::get('wilayah/delete/{id}', [App\Http\Controllers\Admin\WilayahController::class, 'destroy'])->name('wilayah.delete');
+
+/* Route For Admin wilayah*/
+Route::get('admin/cabang/', [App\Http\Controllers\Admin\CabangController::class, 'index'])->name('admin.cabang');
+Route::get('cabang/create', [App\Http\Controllers\Admin\CabangController::class, 'create'])->name('cabang.create');
+Route::post('cabang/store', [App\Http\Controllers\Admin\CabangController::class, 'store'])->name('cabang.store');
+Route::get('cabang/edit/{id}', [App\Http\Controllers\Admin\CabangController::class, 'edit'])->name('cabang.edit');
+Route::post('cabang/update/{id}', [App\Http\Controllers\Admin\CabangController::class, 'update'])->name('cabang.update');
+Route::get('cabang/delete/{id}', [App\Http\Controllers\Admin\CabangController::class, 'destroy'])->name('cabang.delete');

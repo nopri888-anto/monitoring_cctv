@@ -31,13 +31,17 @@
                         <form method="POST" action="{{route('wilayah.store')}}">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputKodeWilayah">Kode Wilayah</label>
-                                    <input type="text" class="form-control" id="exampleInputKodeWilayah" name="kode_wilayah" placeholder="Enter Kode Wilayah">
+                                <div class="form-group row">
+                                    <label for="exampleInputKodeWilayah" class="col-sm-3 col-form-label">Kode Wilayah</label>
+                                    <div class="col-sm-9">
+                                        <input type=" text" class="form-control" id="exampleInputKodeWilayah" name="kode_wilayah" placeholder="Enter Kode Wilayah">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputNamaWilayah">Nama Wilayah</label>
-                                    <input type="text" class="form-control" id="exampleInputNamaWilayah" name="nama_wilayah" placeholder="Enter Nama Wilayah">
+                                <div class="form-group row">
+                                    <label for="exampleInputNamaWilayah" class="col-sm-3 col-form-label">Nama Wilayah</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="exampleInputNamaWilayah" name="nama_wilayah" placeholder="Enter Nama Wilayah">
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->

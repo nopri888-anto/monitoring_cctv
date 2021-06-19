@@ -13,13 +13,13 @@
                 {{Session::get('success')}}
             </div>
             @endif
-            <div class="card bg-bni">
+            <div class="card">
                 <div class="card-header border-danger">
-                    <h3 class="card-title border-danger">Data Wilayah</h3>
+                    <h3 class="card-title ">Data Wilayah</h3>
                 </div>
                 <!-- /.card-header -->
 
-                <div class="card-body border-danger">
+                <div class="card-body ">
 
                     <table id="example1" class="table table-striped ">
                         <thead>
@@ -36,8 +36,8 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$wilayah->kode_wilayah}}</td>
                                 <td>{{$wilayah->nama_wilayah}}</td>
-                                <td><a href="{{ route('wilayah.edit',$user->id) }}" class="btn btn-warning">Edit</a>
-                                    <a href="{{route('wilayah.delete',$user->id)}}" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{ route('wilayah.edit',$wilayah->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{route('wilayah.delete',$wilayah->id)}}" class="btn btn-danger">Delete</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -46,7 +46,7 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-            <p class="leed"><a href="{{route('user.create')}}" class="btn btn-success">Tambah</a></p>
+            <p class="leed"><a href="{{route('wilayah.create')}}" class="btn btn-success">Tambah</a></p>
         </div><!-- /.container-fluid -->
     </div>
 </div>

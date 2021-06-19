@@ -167,15 +167,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="{{route('admin.cabang')}}" class="nav-link">
                                         <i class="fas fa-user nav-icon"></i>
                                         <p>Data Cabang</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="fas fa-user nav-icon"></i>
-                                        <p>Tambah Cabang</p>
                                     </a>
                                 </li>
                             </ul>

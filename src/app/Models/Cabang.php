@@ -13,7 +13,7 @@ class Cabang extends Model
 
     public function wilayah()
     {
-        return $this->belongTo(Wilayah::class);
+        return $this->belongsTo(Wilayah::class);
     }
 
     public function outlet()

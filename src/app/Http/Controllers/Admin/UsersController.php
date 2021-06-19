@@ -126,7 +126,7 @@ class UsersController extends Controller
         $user->name = ucwords(strtolower($request->name));
         $user->email = strtolower($request->email);
         $user->password = Hash::make($request->password);
-        $user->email_verified_at = \Carbon\Carbon::now();
+        $user->email_verified_at = \Carbon\Carbon::now('Asia/Jakarta');
         $user->role = $request->role;
         $update = $user->update();
 
