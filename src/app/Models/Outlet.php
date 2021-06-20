@@ -11,8 +11,8 @@ class Outlet extends Model
 
     protected $table = 'outlets';
 
-    public function outlet()
+    public function wilayah()
     {
-        return $this->belongTo(Outlet::class);
+        return $this->belongsToMany(Wilayah::class, 'wilayahs', 'wilayah_id', 'id');
     }
 }

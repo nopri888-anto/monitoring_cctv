@@ -45,15 +45,10 @@ class WilayahController extends Controller
     {
         //
         $rules = [
-            'kode_wilayah' => 'required|min:3|max:8|unique:wilayahs,kode_wilayah',
             'nama_wilayah' => 'required|unique:wilayahs,nama_wilayah',
         ];
 
         $messages = [
-            'kode_wilayah.required' => 'Kode wilayah harus diisi!',
-            'kode_wilayah.unique' => 'Kode sudah terdaftar!',
-            'kode_wilayah.min' => 'Kode minimal 3 karakter',
-            'kode_wilayah.max' => 'Kode maksimal 8 karakter',
             'nama_wilayah.required' => 'Nama wilayah harus diisi!',
             'nama_wilayah.unique' => 'Nama wilayah sudah terdaftar!',
         ];
@@ -65,7 +60,6 @@ class WilayahController extends Controller
         }
 
         $wilayah = new Wilayah;
-        $wilayah->kode_wilayah = ucwords($request->kode_wilayah);
         $wilayah->nama_wilayah = ucwords(strtolower($request->nama_wilayah));
         $simpan = $wilayah->save();
 
@@ -114,19 +108,14 @@ class WilayahController extends Controller
         //
 
         $request->validate([
-            'kode_wilayah' => 'required',
             'nama_wilayah' => 'required',
         ]);
 
         $rules = [
-            'kode_wilayah' => 'required|min:3|max:8',
             'nama_wilayah' => 'required',
         ];
 
         $messages = [
-            'kode_wilayah.required' => 'Kode wilayah harus diisi',
-            'kode_wilayah.min' => 'Kode minimal 3 karakter',
-            'kode_wilayah.max' => 'Kode maksimal 8 karakter',
             'nama_wilayah.required' => 'Nama wilayah harus diisi!',
         ];
 
@@ -137,12 +126,10 @@ class WilayahController extends Controller
         }
 
         $data = [
-            'kode_wilayah' => $request->input('kode_wilayah'),
             'nama_wilayah' => $request->input('nama_wilayah'),
         ];
 
         $wilayah = Wilayah::find($id);
-        $wilayah->kode_wilayah = $data['kode_wilayah'];
         $wilayah->nama_wilayah = $data['nama_wilayah'];
         $wilayah->save();
         return redirect()->route('admin.wilayah')->with('success', 'Wilayah has been edited!');

@@ -15,4 +15,9 @@ class Wilayah extends Model
     {
         return $this->hasMany(Cabang::class);
     }
+
+    public function outlet()
+    {
+        return $this->hasMany(Outlet::class);
+    }
 }

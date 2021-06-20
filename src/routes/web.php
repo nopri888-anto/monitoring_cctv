@@ -52,3 +52,26 @@ Route::post('cabang/store', [App\Http\Controllers\Admin\CabangController::class,
 Route::get('cabang/edit/{id}', [App\Http\Controllers\Admin\CabangController::class, 'edit'])->name('cabang.edit');
 Route::post('cabang/update/{id}', [App\Http\Controllers\Admin\CabangController::class, 'update'])->name('cabang.update');
 Route::get('cabang/delete/{id}', [App\Http\Controllers\Admin\CabangController::class, 'destroy'])->name('cabang.delete');
+
+/* Route For Admin outlet*/
+Route::get('admin/outlet/', [App\Http\Controllers\Admin\OutletController::class, 'index'])->name('admin.outlet');
+Route::get('outlet/create', [App\Http\Controllers\Admin\OutletController::class, 'create'])->name('outlet.create');
+Route::post('outlet/store', [App\Http\Controllers\Admin\OutletController::class, 'store'])->name('outlet.store');
+Route::get('outlet/edit/{id}', [App\Http\Controllers\Admin\OutletController::class, 'edit'])->name('outlet.edit');
+Route::post('outlet/update/{id}', [App\Http\Controllers\Admin\OutletController::class, 'update'])->name('outlet.update');
+Route::get('outlet/delete/{id}', [App\Http\Controllers\Admin\OutletController::class, 'destroy'])->name('outlet.delete');
+
+/* Route For Admin penilaian*/
+Route::get('admin/category/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.category');
+Route::get('category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('category.create');
+Route::post('category/store', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('category.store');
+Route::get('category/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('category.edit');
+Route::post('category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+Route::get('category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.delete');
+
+Route::get('admin/parameter/', [App\Http\Controllers\Admin\ParameterController::class, 'index'])->name('admin.parameter');
+Route::get('parameter/create', [App\Http\Controllers\Admin\ParameterController::class, 'create'])->name('parameter.create');
+Route::post('parameter/store', [App\Http\Controllers\Admin\ParameterController::class, 'store'])->name('parameter.store');
+Route::get('parameter/edit/{id}', [App\Http\Controllers\Admin\ParameterController::class, 'edit'])->name('parameter.edit');
+Route::post('parameter/update/{id}', [App\Http\Controllers\Admin\ParameterController::class, 'update'])->name('parameter.update');
+Route::get('parameter/delete/{id}', [App\Http\Controllers\Admin\ParameterController::class, 'destroy'])->name('parameter.delete');

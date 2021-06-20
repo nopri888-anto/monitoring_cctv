@@ -25,7 +25,6 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Wilayah</th>
                                 <th>Nama Wilayah</th>
                                 <th>Aksi</th>
                             </tr>
@@ -34,7 +33,6 @@
                             @foreach($wilayah as $key => $wilayah)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$wilayah->kode_wilayah}}</td>
                                 <td>{{$wilayah->nama_wilayah}}</td>
                                 <td><a href="{{ route('wilayah.edit',$wilayah->id) }}" class="btn btn-warning">Edit</a>
                                     <a href="{{route('wilayah.delete',$wilayah->id)}}" class="btn btn-danger">Delete</a></td>

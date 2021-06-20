@@ -43,12 +43,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="exampleInputKodeCabang" class="col-sm-3 col-form-label">Kode Cabang</label>
-                                    <div class="col-sm-9">
-                                        <input type=" text" class="form-control" id="exampleInputKodeCabang" name="kode_cabang" placeholder="Enter Kode Cabang">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label for="exampleInputNamaCabang" class="col-sm-3 col-form-label">Nama Cabang</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="exampleInputNamaCabang" name="nama_cabang" placeholder="Enter Nama Cabang">

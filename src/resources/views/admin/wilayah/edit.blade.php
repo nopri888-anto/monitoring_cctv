@@ -32,10 +32,6 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputKodeWilayah">Kode Wilayah</label>
-                                    <input type="text" value="{{old('kode_wilayah',$wilayah->kode_wilayah)}}" class="form-control" id="exampleInputKodeWilayah" name="kode_wilayah" placeholder="Enter Kode Wilayah">
-                                </div>
-                                <div class="form-group">
                                     <label for="exampleInputEmail">Nama Wilayah</label>
                                     <input type="text" value="{{old('nama_wilayah',$wilayah->nama_wilayah)}}" class="form-control" id="exampleInputNamaWilayah" name="nama_wilayah" placeholder="Enter Nama Wilayah">
                                 </div>

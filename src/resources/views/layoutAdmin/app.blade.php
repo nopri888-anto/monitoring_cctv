@@ -43,6 +43,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -127,13 +129,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="{{route('admin.category')}}" class="nav-link">
                                         <i class="fas fa-user nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="{{route('admin.parameter')}}" class="nav-link">
                                         <i class="fas fa-user nav-icon"></i>
                                         <p>Parameter</p>
                                     </a>
@@ -178,21 +180,15 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-store-alt"></i>
                                 <p>
-                                    Oulet
+                                    Outlet
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="{{route('admin.outlet')}}" class="nav-link">
                                         <i class="fas fa-user nav-icon"></i>
                                         <p>Data Outlet</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="fas fa-user nav-icon"></i>
-                                        <p>Tambah Outlet</p>
                                     </a>
                                 </li>
                             </ul>
@@ -288,7 +284,7 @@
     <!-- DataTables -->
     <script src="../../vendor/adminLte/plugins/datatables/jquery.dataTables.js"></script>
     <script src="../../vendor/adminLte/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-
+    @livewireScripts
     <script>
         $(function() {
             $("#example1").DataTable();

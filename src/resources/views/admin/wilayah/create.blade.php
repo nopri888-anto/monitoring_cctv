@@ -32,12 +32,6 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="exampleInputKodeWilayah" class="col-sm-3 col-form-label">Kode Wilayah</label>
-                                    <div class="col-sm-9">
-                                        <input type=" text" class="form-control" id="exampleInputKodeWilayah" name="kode_wilayah" placeholder="Enter Kode Wilayah">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label for="exampleInputNamaWilayah" class="col-sm-3 col-form-label">Nama Wilayah</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="exampleInputNamaWilayah" name="nama_wilayah" placeholder="Enter Nama Wilayah">

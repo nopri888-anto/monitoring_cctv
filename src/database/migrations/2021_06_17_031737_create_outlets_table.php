@@ -15,6 +15,11 @@ class CreateOutletsTable extends Migration
     {
         Schema::create('outlets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('wilayah_id')->onDelete('cascade');
+
+            $table->unsignedBigInteger('cabang_id')->onDelete('cascade');
+
+            $table->string('nama_outlet', 50)->default();
             $table->timestamps();
         });
     }

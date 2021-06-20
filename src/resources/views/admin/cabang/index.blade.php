@@ -26,7 +26,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Wilayah</th>
-                                <th>Kode Cabang</th>
                                 <th>Nama Cabang</th>
                                 <th>Aksi</th>
                             </tr>
@@ -36,7 +35,6 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$cabang->wilayah->nama_wilayah}}</td>
-                                <td>{{$cabang->kode_cabang}}</td>
                                 <td>{{$cabang->nama_cabang}}</td>
                                 <td><a href="{{ route('cabang.edit',$cabang->id) }}" class="btn btn-warning">Edit</a>
                                     <a href="{{route('cabang.delete',$cabang->id)}}" class="btn btn-danger">Delete</a></td>

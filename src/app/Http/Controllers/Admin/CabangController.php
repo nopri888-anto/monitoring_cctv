@@ -46,16 +46,11 @@ class CabangController extends Controller
     {
         //
         $rules = [
-            'kode_cabang' => 'required|min:3|max:8|unique:cabangs,kode_cabang',
             'nama_cabang' => 'required|min:3|max:50|unique:cabangs,nama_cabang',
             'wilayah' => 'required',
         ];
 
         $messages = [
-            'kode_cabang.required' => 'Kode cabang harus diisi!',
-            'kode_cabang.unique' => 'Kode cabang sudah terdaftar!',
-            'kode_cabang.min' => 'Kode minimal 3 karakter',
-            'kode_cabang.max' => 'Kode maksimal 8 karakter',
             'nama_cabang.min' => 'Nama minimal 3 karakter',
             'nama_cabang.max' => 'Nama maksimal 50 karakter',
             'nama_cabang.required' => 'Nama cabang harus diisi!',
@@ -71,8 +66,7 @@ class CabangController extends Controller
 
         $cabang = new Cabang;
         $cabang->wilayah_id = $request->wilayah;
-        $cabang->kode_cabang = ucwords($request->kode_cabang);
-        $cabang->nama_cabang = ucwords(strtolower($request->nama_cabang));
+        $cabang->nama_cabang = $request->nama_cabang;
         $simpan = $cabang->save();
 
         if ($simpan) {
@@ -121,19 +115,16 @@ class CabangController extends Controller
         //
         $request->validate([
             'wilayah' => 'required',
-            'kode_cabang' => 'required',
             'nama_cabang' => 'required',
         ]);
 
         $rules = [
             'wilayah' => 'required',
-            'kode_cabang' => 'required|min:3|max:8',
             'nama_cabang' => 'required|min:3|max:50',
         ];
 
         $messages = [
             'wilayah.required' => 'Kode wilayah harus diisi',
-            'kode_cabang.min' => 'Kode minimal 3 karakter',
             'nama_cabang.max' => 'Kode maksimal 8 karakter',
             'nama_cabang.required' => 'Nama wilayah harus diisi!',
         ];
@@ -146,13 +137,11 @@ class CabangController extends Controller
 
         $data = [
             'wilayah_id' => $request->input('wilayah'),
-            'kode_cabang' => $request->input('kode_cabang'),
             'nama_cabang' => $request->input('nama_cabang'),
         ];
 
         $cabang = Cabang::find($id);
         $cabang->wilayah_id = $data["wilayah_id"];
-        $cabang->kode_cabang = $data['kode_cabang'];
         $cabang->nama_cabang = $data['nama_cabang'];
         $cabang->save();
         return redirect()->route('admin.cabang')->with('success', 'Cabang has been edited!');

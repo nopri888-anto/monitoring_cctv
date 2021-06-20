@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Session;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -15,6 +18,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $kategori = Category::orderBy('kategori', 'DESC')->get();
+        return view('admin.category.index', compact('kategori'));
+
     }
 
     /**
@@ -25,6 +31,9 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        $kategori = Category::get();
+        return view('admin.category.create', compact('kategori'));
+
     }
 
     /**
@@ -36,6 +45,32 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [
+            'kategori' => 'required|unique:wilayahs,nama_wilayah',
+        ];
+
+        $messages = [
+            'kategori.required' => 'Nama wilayah harus diisi!',
+            'kategori.unique' => 'Nama wilayah sudah terdaftar!',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+
+        $kategori = new Category;
+        $kategori->kategori = ucwords(strtolower($request->kategori));
+        $simpan = $kategori->save();
+
+        if ($simpan) {
+            Session::flash('success', 'Category has been created!');
+            return redirect()->route('admin.category');
+        } else {
+            Session::flash('errors', ['' => 'Category Failed to created!']);
+            return redirect()->route('admin.category.create');
+        }
     }
 
     /**
@@ -58,6 +93,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $kategori = Category::find($id);
+        return view('admin.category.edit', compact('kategori'));
     }
 
     /**
@@ -70,6 +107,32 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'kategori' => 'required',
+        ]);
+
+        $rules = [
+            'kategori' => 'required',
+        ];
+
+        $messages = [
+            'kategori.required' => 'Nama wilayah harus diisi!',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+
+        $data = [
+            'kategori' => $request->input('kategori'),
+        ];
+
+        $kategori = Category::find($id);
+        $kategori->kategori = $data['kategori'];
+        $kategori->save();
+        return redirect()->route('admin.category')->with('success', 'Category has been edited!');
     }
 
     /**
@@ -81,5 +144,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        Category::whereId($id)->delete();
+        return back()->with('success', 'Category has been deleted!');
     }
 }
